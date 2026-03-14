@@ -41,24 +41,30 @@ class Player(pygame.sprite.Sprite):
     :param self: Player attributes
     :param pressed_keys: Currently held down keys
     """
-    if pressed_keys[K_UP]:
+    if pressed_keys[K_UP] or pressed_keys[pygame.K_w]:
       self.rect.move_ip(0, -5) # move_ip() stands for move in place
       move_up_sound.play()
-    if pressed_keys[K_DOWN]:
+
+    if pressed_keys[K_DOWN] or pressed_keys[pygame.K_s]:
       self.rect.move_ip(0, 5)
       move_down_sound.play()
-    if pressed_keys[K_LEFT]:
+
+    if pressed_keys[K_LEFT] or pressed_keys[pygame.K_a]:
       self.rect.move_ip(-5, 0)
-    if pressed_keys[K_RIGHT]:
+
+    if pressed_keys[K_RIGHT] or pressed_keys[pygame.K_d]:
       self.rect.move_ip(5, 0)
 
     # Keep player on the screen
     if self.rect.left < 0:
       self.rect.left = 0
+
     if self.rect.right > SCREEN_WIDTH:
       self.rect.right = SCREEN_HEIGHT
+
     if self.rect.top <= 0:
       self.rect.top = 0
+
     if self.rect.bottom >= SCREEN_HEIGHT:
       self.rect.bottom = SCREEN_HEIGHT
 
