@@ -8,6 +8,10 @@ from pygame.locals import (
   K_RIGHT,
   K_ESCAPE,
   KEYDOWN,
+  K_w,
+  K_a,
+  K_s,
+  K_d,
   QUIT
 )
 import random
@@ -41,18 +45,18 @@ class Player(pygame.sprite.Sprite):
     :param self: Player attributes
     :param pressed_keys: Currently held down keys
     """
-    if pressed_keys[K_UP] or pressed_keys[pygame.K_w]:
+    if pressed_keys[K_UP] or pressed_keys[K_w]:
       self.rect.move_ip(0, -5) # move_ip() stands for move in place
       move_up_sound.play()
 
-    if pressed_keys[K_DOWN] or pressed_keys[pygame.K_s]:
+    if pressed_keys[K_DOWN] or pressed_keys[K_s]:
       self.rect.move_ip(0, 5)
       move_down_sound.play()
 
-    if pressed_keys[K_LEFT] or pressed_keys[pygame.K_a]:
+    if pressed_keys[K_LEFT] or pressed_keys[K_a]:
       self.rect.move_ip(-5, 0)
 
-    if pressed_keys[K_RIGHT] or pressed_keys[pygame.K_d]:
+    if pressed_keys[K_RIGHT] or pressed_keys[K_d]:
       self.rect.move_ip(5, 0)
 
     # Keep player on the screen
