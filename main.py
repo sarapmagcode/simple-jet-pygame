@@ -223,3 +223,4 @@ while running:
 
 pygame.mixer.music.stop()
 pygame.mixer.quit()
+pygame.quit()
